@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Nordvik card template with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It contains basic API mock that works with NordvikManager that can help you develop new cards and views. 
 
 ## Available Scripts
 
