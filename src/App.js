@@ -9,7 +9,8 @@ function App({ Api }) {
       Api.Properties.Subscribe("test", (value) => {
         setTest(value);
       });
-      await Api.Properties.Init("test", 2137);
+
+      await Api.Properties.Init("test", 1);
 
       const testValue = await Api.Properties.Get("test");
       setTest(testValue.value);
@@ -17,12 +18,15 @@ function App({ Api }) {
 
     asyncTest();
 
+    return () => {
+      Api.Properties.Remove("test");
+    }
   }, []);
 
   return (
     <div>
-      Your code here {test}
-      <br />
+      Your code here
+      <div>Test property = {test}</div>
       <button onClick={() => Api.Properties.Set("test", test + 1)}>Increment</button>
     </div>
   );
