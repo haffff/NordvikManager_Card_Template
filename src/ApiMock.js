@@ -42,7 +42,7 @@ export const ApiMock = {
       };
 
       if (ApiMock._propertySubscriptions[propertyName]) {
-        ApiMock._propertySubscriptions[propertyName].forEach((x) => x(value));
+        ApiMock._propertySubscriptions[propertyName].forEach((x) => x({ name: propertyName, value: value }));
       }
     },
     SetMany: async (properties) => {
