@@ -6,21 +6,17 @@ function App({ Api }) {
   
   React.useEffect(() => {
     const asyncTest = async () => {
-      Api.Properties.Subscribe("test", (value) => {
+      Api.Properties.Subscribe("test", ({value}) => {
         setTest(value);
       });
 
       await Api.Properties.Init("test", 1);
 
-      const testValue = await Api.Properties.Get("test");
-      setTest(testValue.value);
+      const testProperty = await Api.Properties.Get("test");
+      setTest(testProperty.value);
     }
 
     asyncTest();
-
-    return () => {
-      Api.Properties.Remove("test");
-    }
   }, []);
 
   return (
